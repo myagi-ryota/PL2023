@@ -99,5 +99,5 @@ def printTable(distribuicao):
             
 a = []            
 leitura(a)
-print(didade(a))
 printTable(dsexo(a))
+printTable(didade(a))
