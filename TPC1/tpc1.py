@@ -1,4 +1,5 @@
 import re
+from tabulate import tabulate
 
 def leitura(amostra):    
     f = open("c:/Users/Tiago/Desktop/PL2023/TPC1/myheart.csv")
@@ -72,7 +73,7 @@ def didade(amostra):
     distribuicao = {"[30-34]": counter[0], "[35-39]": counter[1], "[40-44]": counter[2], "[45-49]": counter[3], "[50-54]": counter[4],"[55-59]": counter[5],"[60-64]": counter[6],"[65-69]": counter[7]}                               
     return distribuicao    
             
-def linferior(amostra):
+def linfColestrol(amostra):
     min = 100000
     for pessoa in amostra:
         colestrol = int(pessoa[3])
@@ -81,8 +82,22 @@ def linferior(amostra):
                 min = colestrol
     return min                        
                 
+def lsupColestrol(amostra):
+    max = 0
+    for pessoa in amostra:
+        colestrol = int(pessoa[3])
+        if colestrol > max:
+            max = colestrol
+    return max
+
+def printTable(distribuicao):
+    print("{:<20} {:<20} {:<20}".format('Caraterística', 'Doentes', 'Total'))
+    for key, value in distribuicao.items():
+        car = key
+        doente, total = value
+        print("{:<20} {:<20} {:<20}".format(car, doente, total))
             
 a = []            
 leitura(a)
-print(linferior(a))
-#print(didade(a))
+print(didade(a))
+printTable(dsexo(a))
