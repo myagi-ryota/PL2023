@@ -15,9 +15,9 @@ while True:
         if s == 'OFF':
             onOff = 0
         if s.isdigit() and onOff == 1:
-            lista.append(int(s))
-    for n in lista:
-        soma += n
+            soma += int(s)
+        if s == '=':
+            print(f'Soma = {soma}')    
 
 print(f'Soma = {soma}')
 print("Saída com sucesso")
